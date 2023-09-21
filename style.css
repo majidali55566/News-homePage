@@ -1,0 +1,296 @@
+/*
+  1. Use a more-intuitive box-sizing model.
+*/
+*, *::before, *::after {
+    box-sizing: border-box;
+  }
+  /*
+    2. Remove default margin
+  */
+  * {
+    margin: 0;
+  }
+  /*
+    Typographic tweaks!
+    3. Add accessible line-height
+    4. Improve text rendering
+  */
+  body {
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+  /*
+    5. Improve media defaults
+  */
+  img, picture, video, canvas, svg {
+    display: block;
+    max-width: 100%;
+  }
+  /*
+    6. Remove built-in form typography styles
+  */
+  input, button, textarea, select {
+    font: inherit;
+  }
+  /*
+    7. Avoid text overflows
+  */
+  p, h1, h2, h3, h4, h5, h6 {
+    overflow-wrap: break-word;
+  }
+
+  :root{
+
+
+    --clr-primary-one: hsl(5, 85%, 63%);
+    --clr-primary-two: hsl(35, 77%, 62%);
+
+    --off-white: hsl(36, 100%, 99%);
+
+    --grayish-blue: hsl(233, 8%, 79%);
+    --dark-grayish-blue: hsl(236, 13%, 42%);
+    --very-dark-blue: hsl(240, 100%, 5%);
+
+
+    --ff: 'Inter', sans-serif;
+
+    --fs-400:0.937rem;
+    --fs-500:1.25rem;
+    --fs-600:1.5rem;
+    --fs-700:1.75rem;
+    --fs-800:2rem;
+
+    --fw-regular:400;
+    --fw-700:700;
+    --fw-800:800;
+
+  }
+
+  /* General styling */
+
+  body{
+    font-size: var(--fs-400);
+    font-family: var(--ff);
+    font-weight: var(--fw-regular);
+    padding-block: 1.5rem;
+    padding-inline: min(5vw,2rem);
+    color: var(--grayish-blue);
+  }
+  @media (min-width: 768px){
+    body{
+      padding-inline:max(10vw,5rem);
+  }}
+  
+   
+
+  button{
+    padding-block: 1rem;
+    background-color: var(--clr-primary-one);
+    border:none;
+    color: var(--off-white);
+    letter-spacing: .3rem;
+    max-width: 14rem;
+    max-height: 4rem;
+  }
+  @media (min-width:1200px){
+    button{
+      padding-block: 1.5rem;
+    }
+  }
+  h1{
+    color:var(--very-dark-blue);
+    font-size: 3rem;
+    font-weight: var(--fw-800);
+    line-height: 1;
+  }
+  h2{
+    font-size: var(--fs-700);
+  }
+  h3{
+    font-size: var(--fs-500);
+  }
+  
+ .nav-container{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  
+ }
+
+ 
+ @media (min-width:375px){
+  .nav-container{
+    padding-block: 3rem;
+  }
+ }
+
+@media (max-width:560px){
+  
+  .nav-links li {
+    list-style: none;
+  }
+  .nav-links li a{
+    text-decoration: none;
+  }
+  .links-container{
+    display: none;
+    position: fixed;
+    gap: 1.5rem;
+    height: 100vh;
+    background-color: var(--off-white);
+    flex-direction: row-reverse;
+    gap: 5rem;
+    top: 0;
+    right: 0;
+    box-shadow:-4rem -1rem 20rem 3px #00000060;
+  }
+  .links-container #crossMenu{
+    margin: 2rem;
+  }
+ 
+
+  .nav-links{
+    display: flex;
+    flex-direction: column;
+    align-content: flex-start;
+    justify-content: center;
+    gap: 1.5rem;
+  }
+  #toggleMenue{
+    display: block;
+  }
+}
+.flex-display{
+  display: flex;
+}
+.none-display{
+  display: none;
+}
+@media (min-width:560px){
+  
+  .links-container svg{
+    display: none;
+  }
+  .nav-links li{
+    list-style: none;
+  }
+  .nav-links li a{
+    text-decoration: none;
+    color: var(--dark-grayish-blue);
+  }
+  .nav-links{
+    display: flex;
+    gap: 1.5rem;
+  }
+  .menu-toggle{
+    display: none;
+  }
+}
+
+
+
+ /* Utilities */
+ .display-none{
+  display: none;
+ }
+.displayed{
+  display: inline-block;
+}
+
+ .grid-flow{
+  display: grid;
+ }
+ .flex-group{
+  display: flex;
+ }
+ .grid-flow-small{
+  display: grid;
+  gap: 1rem;
+ }
+ .new-popular-articles{
+  display: grid;
+  gap: 2rem;
+ }
+
+ .popular{
+  color: var(--dark-grayish-blue)
+ }
+ .new-articles{
+  background-color: var(--very-dark-blue);
+  gap: 2rem;
+  padding: 1.5rem;
+  color:var(--grayish-blue)
+ }
+ .new-articles h2{
+  color: var(--clr-primary-two);
+ }
+ .new-articles h3{
+  color: var(--off-white)
+ }
+ .new-articles hr{
+  height: 1px;
+ }
+ @media (min-width: 900px){
+    .new-popular-articles{
+      grid-template-areas: "discriptive-image new-articles"
+      "popular new-articles";
+    }
+    .new-popular-articles .discriptive-image{
+      grid-area: discriptive-image;
+    }
+    .new-popular-articles .popular{
+      grid-area: popular;
+    }
+    .new-popular-articles .new-articles{
+      grid-area: new-articles;
+    }
+ } 
+
+ @media (min-width: 1200px){
+  .new-popular-articles{
+    grid-template-areas: "discriptive-image discriptive-image new-articles"
+    "popular popular new-articles"
+  }
+  .new-popular-articles .discriptive-image{
+    grid-area: discriptive-image;
+  }
+  .new-popular-articles .popular{
+    grid-area: popular;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+  }
+  .new-popular-articles .new-articles{
+    grid-area: new-articles;
+  }
+ }
+ 
+ .trending-articles{
+    display: grid;
+    margin-top: 4rem;
+    gap: 2rem;
+ }
+ @media (min-width:900px){
+  .trending-articles{
+   grid-template-columns: repeat(2,1fr);
+   
+  }
+ }
+ @media (min-width: 1200px){
+  .trending-articles{
+    grid-template-columns: repeat(3,auto);
+  }
+ }
+ .trending{
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 1rem;
+ }
+ .trending h3{
+  font-size:var(--fs-500);
+  color: var(--very-dark-blue);
+  font-weight: var(--fw-700);
+ }
+ 
+ .span-2{
+  grid-column: span 2;
+ }
